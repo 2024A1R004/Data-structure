@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+_Bool isValid(char *s) {
+ 
+    char stack[10000];  
+    int top = -1; 
+    for (int i = 0; s[i] != '\0'; i++) {
+        char c = s[i];
+        
+        
+        if (c == '(' || c == '{' || c == '[') {
+            stack[++top] = c;
+        }
+        
+        else {
+            if (top == -1) {
+                return false;  
+            }
+            char topChar = stack[top--];  
+            if (c == ')' && topChar != '(') {
+                return false;  
+            } else if (c == '}' && topChar != '{') {
+                return false;  
+            } else if (c == ']' && topChar != '[') {
+                return false; 
+            }
+        }
+    }
+    
+   
+    return top == -1;
+}
+
+int main() {
+    char s[10000];
+    scanf("%s", s);
+    if (isValid(s)) {
+        printf("True\n");
+    } else {
+        printf("False\n");
+    }
+    
+    return 0;
+}

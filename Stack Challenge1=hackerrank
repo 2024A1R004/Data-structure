@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+#define MAX 100
+int top =-1, stack[MAX];
+void push(int value){
+    if(top == MAX-1){
+        return;
+    }
+    else{
+        top++;
+        stack[top] = value;
+    }
+}
+void pop(){
+    if(top == -1)
+    {
+        return;
+    }
+    else
+    {
+        top--;
+    }
+}
+    void display()
+    {
+        if(top == -1)
+        {
+            return;
+        }
+        else{
+            for(int i=0;i<=top;i++)
+        {
+            printf("%d",stack[i]);
+        }
+    }
+    printf("\n");
+   }
+int main()
+{
+    int a,b,c,d,e;
+    scanf("%d%d%d%d%d",&a,&b,&c,&d,&e);
+    push(a);
+    push(b);
+    push(c);
+    pop();
+    push(d);
+    push(e);
+    pop();
+    pop();
+    pop();
+    display();
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */    
+    return 0;
+}

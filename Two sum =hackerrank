@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+void two_sum(int nums[], int nums_size, int target) {
+    
+    for (int i = 0; i < nums_size - 1; i++) {
+        for (int j = i + 1; j < nums_size; j++){
+            if (nums[i] + nums[j] == target) {
+                printf("%d %d\n", i, j);
+                return;
+            }
+        }
+    }
+}
+
+int main(){
+    int N, target;
+    scanf("%d", &N);
+    int nums[N];
+    for (int i = 0; i < N; i++) {
+        scanf("%d", &nums[i]);
+    }
+    scanf("%d", &target);
+    two_sum(nums, N, target);
+
+    return 0;
+}
